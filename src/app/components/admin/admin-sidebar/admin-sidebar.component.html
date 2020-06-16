@@ -1,0 +1,117 @@
+<div class="headerWrapper">
+    <!-- <div class="left_col"> -->
+    <div class="left_col scroll-view animated">
+        <div class="closeButton">X</div>
+        <div class="navbar nav_title" style="border: 0;">
+            <a [routerLink]="['/admin/dashboard']" class="site_title"><img src="assets/images/Yeslogo.png"
+                    alt="YES BANK Celebrate" title="YES BANK Celebrate" width="150px" /></a>
+            <!-- <a [routerLink]="['/dashboard']" class="site_title_icon"><img src="../../../assets/images/Ink-in-Caps-Logo.png" /></a> -->
+            <!-- <a [routerLink]="['/dashboard']" class="site_title"
+          ><img src="../../../assets/images/Ink-in-Caps-Logo.png"
+        /></a> -->
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+
+            <div class="profile_info text-center">
+                <!-- <span>{{username}}</span> -->
+                <!-- <a [routerLink]="['/user_profile']">
+            <h2>{{ username }}</h2>
+          </a> -->
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+
+        <br />
+
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <ul class="nav side-menu" id="accordion" style="padding-left:10px;">
+                    <li class="opener">
+                        <a class="anchor" [routerLink]="['/admin/dashboard']" routerLinkActive="active"><span
+                                class="glyphicon glyphicon-globe"></span>Dashboard
+                            <span class="fa fa-chevron-down"></span></a>
+                    </li>
+
+                    <li class="opener">
+                        <a class="anchor"><span class="glyphicon glyphicon-briefcase"></span>Campaign 1
+                            <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a [routerLink]="['/admin/users']" routerLinkActive="active"><span
+                                        class="glyphicon glyphicon-user"></span>Users</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/admin/stories']" routerLinkActive="active"><span
+                                        class="glyphicon glyphicon-film"></span>Stories</a>
+                            </li>
+                            <!-- <li>
+                  <a [routerLink]="['/portfolio']" routerLinkActive="active">Portfolio Layout</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/add_portfolio']" routerLinkActive="active">Add Portfolio</a>
+                </li> -->
+                        </ul>
+                    </li>
+                    
+                    <li class="opener">
+                        <a class="anchor"><span class="	glyphicon glyphicon-usd"></span>Financially Free
+                            <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a [routerLink]="['/admin/answers']" routerLinkActive="active"><span
+                                    class="	glyphicon glyphicon-list"></span>Answers</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <!-- <li><a [routerLink]="['/products']" routerLinkActive="active"><i class="fa fa-product-hunt"></i>Products</a> </li> -->
+                </ul>
+            </div>
+        </div>
+        <!-- /sidebar menu -->
+    </div>
+    <!-- </div> -->
+
+    <!-- top navigation -->
+    <div class="top_nav">
+        <div class="nav_menu">
+            <nav>
+                <!-- <div class="nav toggle" id="toggle">
+            <a id="menu_toggle">
+              <i class="fa fa-bars"></i> <i class="fa fa-bars"></i>
+              <i class="fa fa-bars"></i>
+            </a>
+          </div> -->
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="https://s3.ap-south-1.amazonaws.com/pinkbook-images-dev/products/465f4f51-bb2b-453b-8f67-6065f0e6f9f7.png"
+                                alt="" />Admin<span class="glyphicon glyphicon-chevron-right"
+                                style="transform: rotate(90deg);margin-left: 5px;top:2px;"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-usermenu pull-right" style="width:100% !important">
+                            <li class="text-center" style="width:100%">
+                                <a (click)="logout()">
+                                    Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <!-- /top navigation -->
+</div>

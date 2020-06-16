@@ -1,0 +1,57 @@
+<div style="text-align:center">
+    <div>
+      <webcam [height]="300" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+              [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+              [videoOptions]="videoOptions"
+              [imageQuality]="1"
+              (cameraSwitched)="cameraWasSwitched($event)"
+              (initError)="handleInitError($event)"
+      ></webcam>
+      <br/>
+      <button class="actionBtn" (click)="triggerSnapshot();">Take A Snapshot</button>
+      <!-- <button class="actionBtn" (click)="toggleWebcam();">Toggle Webcam</button> -->
+      <br/>
+      <!-- <button class="actionBtn" (click)="showNextWebcam(true);" [disabled]="!multipleWebcamsAvailable">Next Webcam</button> -->
+      <!-- <input id="cameraSwitchCheckbox" type="checkbox" [(ngModel)]="allowCameraSwitch"><label for="cameraSwitchCheckbox">Allow Camera Switch</label> -->
+      <!-- <br/>
+      DeviceId: <input id="deviceId" type="text" [(ngModel)]="deviceId" style="width: 500px">
+      <button (click)="showNextWebcam(deviceId);">Activate</button> -->
+    </div>
+  </div>
+  
+  <div class="snapshot" *ngIf="webcamImage">
+    <h2>Nice one!</h2>
+    <img [src]="webcamImage.imageAsDataUrl"/>
+  </div>
+  
+  <h4 *ngIf="errors.length > 0">Messages:</h4>
+  <ul *ngFor="let error of errors">
+    <li>{{error | json}}</li>
+  </ul>
+  
+
+  <div class="radios" style="border:1px solid black">
+      <div class="radio">
+        <input type="radio" id="radio2" name="radio">
+        <label for="radio2">
+          <div class="checker"></div>
+          Two
+        </label>
+      </div>
+      
+      <div class="radio">
+        <input type="radio" id="radio3" name="radio">
+        <label for="radio3">
+          <div class="checker"></div>
+          Three
+        </label>
+      </div>
+      
+      <div class="radio">
+        <input type="radio" id="radio4" name="radio">
+        <label for="radio4">
+          <div class="checker"></div>
+          Four
+        </label>
+      </div>
+    </div>

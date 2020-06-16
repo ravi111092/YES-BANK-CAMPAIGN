@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="container">
+            <!-- animated zoomIn -->
+        <form class="" [formGroup]="login_from" (ngSubmit)="on_submit_login_form(login_from)">
+            <div *ngIf="error_alert">
+                <div class="alert alert-danger" *ngFor="let response of error_message">
+                    <strong>{{response.message}}</strong>
+                </div>
+            </div>
+
+            <div class="logo">
+                <img src="assets/images/yesbank.png" style="width:200px;margin:0 auto;display:block;">
+            </div>
+            
+            <div>
+                <h4 class="text-center login_title">LOGIN</h4>
+            </div>
+            <div class="form-group">
+                <div class="form-element">
+                    <label>Email</label>
+                    <input type="email" class="form-control" formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && validation_function.email.errors }"
+                        placeholder="Email Address" />
+                </div>
+
+                <div class="form-element">
+                    <label>Password</label>
+                    <input type="password" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && validation_function.password.errors }"
+                        class="form-control" placeholder="Password" />
+                </div>
+                <!-- <div class="form-element tetx-center error_div">
+                    <p *ngFor="let response of error_message" class="text-center">
+                        {{response.message}}
+                    </p>
+                </div> -->
+                <div class="form-element text-center">
+                    <button class="btn btn-primary">Login</button>
+                </div>
+                
+               
+            </div>
+        </form>
+    </div>
+</div>

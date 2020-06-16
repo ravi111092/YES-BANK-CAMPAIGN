@@ -1,0 +1,147 @@
+<div class="overlay_loader" *ngIf="loader">
+    <div class="lds-css ng-scope" style="position:absolute">
+        <div style="width:100%;height:100%" class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+        <div style="color:#fff;text-align:center;letter-spacing:1px;">Please Wait ...</div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="mobile_image">
+      <img src="assets/images/Celebrate-her-Logo-Icon.png" />
+  </div>
+    <div class="form_div">
+    
+        <form class="" [formGroup]="user_details" (ngSubmit)="submit_user_userdetails(user_details)" id="details_form">
+            <div class="logo">
+                <img src="assets/images/yesbank.png" alt="YES BANK Celebrate" title="YES BANK Celebrate" style="width:200px;margin:0 auto;display:block;">
+            </div>
+            <div class="form-group">
+                <div class="form-element">
+                    <label>Full Name <span style="color:#e31d23">*</span></label>
+                    <input type="text" class="form-control" formControlName="full_name" pattern="[a-zA-Z][a-zA-Z ]+"
+                        [ngClass]="{ 'is-invalid': submitted_user && validation_function_user.full_name.errors }"
+                        placeholder="Full Name" />
+                </div>
+                <div class="form-element">
+                    <label>Email <span style="color:#e31d23">*</span></label>
+                    <input type="email" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted_user && validation_function_user.email.errors }"
+                        placeholder="Email Address" />
+                </div>
+    
+                <div class="form-element">
+                    <label>Phone Number <span style="color:#e31d23">*</span></label>
+                    <input type="text" formControlName="phone_number" (keypress)="keyPress($event)"
+                        [ngClass]="{ 'is-invalid': submitted_user && validation_function_user.phone_number.errors }"
+                        class="form-control" minlength="10" maxlength = "10" placeholder="Phone Number"/>
+                </div>
+    
+    
+                <div class="form-element">
+                    <label>Are you YES BANK Customer ? <span style="color:#e31d23">*</span></label>
+    
+                    <div class="radios">
+                        <div class="radio">
+                            <input type="radio" id="radio2" formControlName="is_yes_bank_customer" value="true">
+                            <label for="radio2">
+                                <div class="checker"></div>
+                                Yes
+                            </label>
+                        </div>
+    
+                        <div class="radio">
+                            <input type="radio" id="radio3" formControlName="is_yes_bank_customer" value="false">
+                            <label for="radio3">
+                                <div class="checker"></div>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+    
+              </div>
+      
+            <div class="form-group">
+              <div class="form-element text-center">
+                <button  class="btn btn-primary" style="padding-left:20px;padding-right:20px;font-size: 20px;">Send</button>
+              </div>
+            </div>
+          </form>
+
+
+      <form class="animated slideInRight answers" [formGroup]="add_answer" (ngSubmit)="submit_answer(add_answer)" id="question_form" style="display:none;">
+        <!-- <div class="form-group">
+          <div class="form-element">
+            <label>What does financially free means to you?</label>
+            <textarea rows="10" class="form-control" placeholder="Your Answer" formControlName="text"
+              [ngClass]="{ 'is-invalid': submitted && validation_function.text.errors }"></textarea>
+          </div>
+        </div> -->
+
+        <div class="logo">
+            <img src="assets/images/yesbank.png" alt="YES BANK Celebrate" title="YES BANK Celebrate" style="width:200px;margin:0 auto;display:block;">
+        </div>
+
+        <div class="form-element">
+          <label>What does financially free means to you?</label>
+          <div class="radios">
+          <div class="radio">
+            <input id="radio-1" type="radio" formControlName="answer" value="A">
+            <label for="radio-1" class="radio-label" style="width:100%">
+              <div class="checker"></div>
+              Option 1</label>
+          </div>
+        
+          <div class="radio">
+            <input id="radio-2" type="radio" formControlName="answer" value="B">
+            <label  for="radio-2" class="radio-label" style="width:100%"><div class="checker"></div>Option 2</label>
+          </div>
+        
+          <div class="radio">
+            <input id="radio-3" type="radio" formControlName="answer" value="C">
+            <label for="radio-3" class="radio-label" style="width:100%"><div class="checker"></div>Option 3</label>
+          </div>
+
+          <div class="radio">
+            <input id="radio-4"  type="radio" formControlName="answer" value="D">
+            <label for="radio-4" class="radio-label" style="width:100%"><div class="checker"></div>Option 4</label>
+          </div>
+          </div>
+      </div>
+  
+        <div class="form-group">
+          <div class="form-element text-center">
+            <button  class="btn btn-primary" style="padding-left:20px;padding-right:20px;font-size: 20px;">Send</button>
+          </div>
+        </div>
+      </form>
+      <div style="clear:both"></div>
+    </div>
+  <div style="clear:both"></div>
+  
+  </div>
+  
+  
+  <!-- Modal -->
+  <div id="message_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+  
+      <div class="modal-content">
+  
+        <div class="modal-body">
+          <div class="text-center" style="font-size:20px;" *ngIf="successmesage">{{successmesage}}</div>
+          <div  *ngIf="errormessage">
+            <div class="text-center" style="font-size:20px;color:red" *ngFor="let response of errormessage">
+              {{response.message}}
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  </div>

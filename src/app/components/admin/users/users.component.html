@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="text-right" style="margin:20px 0px;">
+            <div class="dropdown" id="new_dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Export
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" style="left:auto;right:0px;">
+                  <li><a (click)="export_all_users()">Export All Users</a></li>
+                  <li><a (click)="export_users_with_stories()">Export Users With Stories</a></li>
+                  <li><a (click)="export_users_without_stories()">Export Users Without Stories</a></li>
+                </ul>
+              </div>
+            <!-- <button class="btn btn-primary" (click)="downloadExcelSheet_widthout_stories()" style="margin-right:20px;">Export Users Without Stories</button>
+            <button class="btn btn-primary" (click)="downloadExcelSheet()">Export Users</button> -->
+        </div>
+    </div>
+    <div class="container main_user_table">
+     
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <!-- <th>#</th> -->
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>YES BANK Customer</th>
+                        <th>Referral code</th>
+                        <th>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle action_button" type="button" data-toggle="dropdown">Actions
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                  <li><a (click)="get_campaign_one_users()">All Users</a></li>
+                                  <li><a (click)="get_campaign_one_users_with_stories()">Users With Stories</a></li>
+                                  <li><a (click)="get_campaign_one_users_without_stories()">Users Without Stories</a></li>
+                                </ul>
+                              </div>
+                        </th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users_data | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total_count}; let index=i"
+                        (click)="show_stories(user.email)"
+                        style="cursor:pointer">
+                        <!-- <td>1</td> -->
+
+                        <td>{{user.full_name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone_number}}</td>
+                        <td>{{user.is_yes_bank_customer ? 'Yes' : 'No'}}</td>
+                        <td>{{user.referral_code}}</td>
+                        <td><button class="btn btn-primary" (click)="show_stories(user.email)">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <pagination-controls (pageChange)="p = $event;"></pagination-controls>
+        </div>
+    </div>
+
+
+  
+</div>
+
+

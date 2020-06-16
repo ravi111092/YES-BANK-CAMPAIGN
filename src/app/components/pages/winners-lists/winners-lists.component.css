@@ -1,0 +1,9 @@
+.winners_wrapper{border:1px solid #ddd;width:500px;min-height:200px;margin:10px auto 20px auto;padding:20px}
+.name_div, .stories_div{font-size:15px !important;margin:5px auto;text-align:center}
+
+@media screen and (max-width:550px){
+   .winners_wrapper{width:100% !important}
+   .image_div{height:auto !important;}
+   .name_div, .stories_div{font-size:13px !important;}
+   #week6 img, #week7 img, #week8 img, #week9 img{width:100% !important}
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title id="title">YES BANK Celebrate Her</title>
+    <meta id="metadescription" name="description"
+        content="YES BANK Celebrate Her – YES BANK presents Celebrate her platform for everyone to join hands to celebrate the spirit of womanhood. Visit website for more on YES BANK Celebrate Her.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+       
+
+        .maindiv {
+            border: 1px solid #ddd;
+            min-height: 200px;
+            width: 500px;
+            border-radius: 10px;
+            margin: 50px auto;
+            overflow: hidden
+        }
+
+        @media screen and (max-width:600px) {
+            .maindiv {
+                width: 100% !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="maindiv" style="">
+                <div style="padding:20px;">
+                    <h4 class="text-center" style="margin:0px;" id="namediv">{{id}}</h4>
+                </div>
+                <div style="width:200px;height:200px;margin:10px auto;">
+                    <img id="viewstories" src=""
+                        style="width:100%;height:100%;object-fit:contain;border-radius:10px;" />
+                </div>
+                <div id="descriptiondiv" style="padding:20px;text-align:justify"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- <script>
+        console.log(window.location.href);
+        var url = new URL(window.location.href);
+        console.log(url.pathname)
+        var idsplit = url.pathname.split('/');
+        var id = idsplit[2];
+        console.log(id);
+
+        // var id = url.split('/');
+        // console.log(id[2]);
+        getstories(idsplit[2]);
+        async function getstories(id) {
+
+            var json = "../storiesupdated.json";
+            var storiesdata;
+            // console.log(json);
+
+            await $.getJSON(json, function (data) {
+                console.log("lol2");
+                storiesdata = data;
+                // console.log(JSON.stringify(storiesdata,null,2))
+                for (var i = 0; i < storiesdata.length; i++) {
+                    if (id == storiesdata[i]._id) {
+                        // console.log(JSON.stringify(storiesdata[i],null,2));
+                        document.getElementById('namediv').innerHTML = storiesdata[i].name;
+                        $("#viewstories").attr('src', 'https://yescelebrate.yesbank.in/story_images/'+storiesdata[i].image);
+                        // $("#viewstories").attr('src', 'http://localhost:9713/story_images/' + storiesdata[i].image);
+                        document.getElementById('descriptiondiv').innerHTML = storiesdata[i].description;
+                        $('#title').attr('content', storiesdata[i].name);
+                        $('#metadescription').attr('content', storiesdata[i].description);
+                    }
+
+                }
+            });
+        }
+
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<div class="overlay_loading_screen" *ngIf="loading">
+    <div class="lds-css ng-scope" style="position:absolute">
+        <div style="width:100%;height:100%" class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+        <div style="color:#fff;text-align:center;letter-spacing:1px;">Please Wait ...</div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="women_logo mobile_image">
+        <img src="assets/images/Celebrate-her-Logo-Icon.png" />
+    </div>
+
+    <form class="animated slideInRight" [formGroup]="description_form" (ngSubmit)="onsubmit(description_form)">
+        <div *ngIf="show_alert_success" class="alert alert-success">
+            <strong>{{success_message}}</strong>
+        </div>
+
+        <div *ngIf="show_alert_error">
+            <div class="alert alert-danger" *ngFor="let response of error_message">
+                <strong>{{response.message}}</strong>
+            </div>
+        </div>
+
+
+        <div class="logo" style="margin-bottom:10px;">
+            <img src="assets/images/yesbank.png" alt="YES BANK Celebrate" title="YES BANK Celebrate"
+                style="width:200px;margin:0 auto;display:block;">
+        </div>
+
+        <div class="form-group">
+            <div class="form-element" style="overflow:hidden">
+                <label>Select Image (Optional)</label>
+                <input type="file" accept="image/*" formControlName="image" class="form-control"
+                    (change)="onFileChange($event);" />
+                <div *ngIf="!file_error">
+                    <img *ngIf="image_show" src="{{image_show}}"
+                        style="border:1px solid #eee;height:200px;margin:20px auto;object-fit:cover;display:block" />
+
+                </div>
+                <div *ngIf="file_error" style="color:red">*{{file_error}}</div>
+            </div>
+
+            <div class="form-element">
+                <label>Name</label>
+                <input type="text" rows="5" id="name"
+                    [ngClass]="{ 'is-invalid': submitted && validation_function.name.errors }" formControlName="name"
+                    class="form-control" placeholder="Name of the woman who inspired you">
+            </div>
+
+            <div class="form-element">
+                <label>Description</label>
+                <textarea type="text" rows="3" id="description"
+                    [ngClass]="{ 'is-invalid': submitted && validation_function.description.errors }"
+                    formControlName="description" class="form-control"
+                    placeholder="What is it about her that inspires you" maxlength="2000"></textarea>
+            </div>
+
+            <div class="form-element text-center">
+                <button class="btn btn-primary"
+                    onclick="dataLayer.push({'event' : 'yesBankCelebrate','eventCategory' : 'Celebrate Her Contest','eventAction' : 'Submit', 'eventLabel' : 'NA'});">Submit</button>
+            </div>
+
+        </div>
+    </form>
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="confirmation_modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="display:none">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Status</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center" style="font-size:18px">Thankyou for submitting your stories !</p>
+                <p class="text-center" style="font-size:18px">Do you want to add more stories ? </p>
+                <div class="text-center">
+                    <button class="btn btn-primary modal_buttons" data-dismiss="modal"
+                        onclick="dataLayer.push({'event' : 'yesBankCelebrate','eventCategory' : 'Celebrate Her Contest','eventAction' : 'Yes', 'eventLabel' : 'NA'});">Yes</button>
+                    <button class="btn btn-primary modal_buttons" (click)="takemeToMosaic()" data-dismiss="modal"
+                        onclick="dataLayer.push({'event' : 'yesBankCelebrate','eventCategory' : 'Celebrate Her Contest','eventAction' : 'No', 'eventLabel' : 'NA'});">No</button>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div> -->
+        </div>
+
+    </div>
+</div>

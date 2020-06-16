@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="text-right" style="margin:20px 0px;">
+            <!-- <button class="btn btn-primary" (click)="downloadExcelSheet()">Export Stories</button> -->
+        </div>
+    </div>
+    <div class="container">
+        <div *ngIf="success_alert">
+            <div class="alert alert-success">
+                <strong>{{success_message}}</strong>
+            </div>
+        </div>
+
+        <div *ngIf="error_alert">
+            <div class="alert alert-danger" *ngFor="let response of error_message">
+                <strong>{{response.message}}</strong>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>YESBANK Customer</th>
+                        <th>Referral Code</th>
+                        <th>Answers</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let answer of all_answers | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total_count}; let index=i">
+                     
+                        <td>
+                           {{answer.full_name}}
+
+                        </td>
+                        <td> {{answer.email}}</td>
+                        <td> {{answer.phone_number}}</td>
+                        <td> {{answer.is_yes_bank_customer ? 'Yes' : 'No'}}</td>
+                        <td> {{answer.referral_code ? answer.referral_code : '-'}}</td>
+                        <td>
+                            <div style="height:45px;overflow:hidden">
+                                {{answer.text}}
+                            </div>
+                            <div class="text-right">
+                                <span (click)="show_data(answer);" data-toggle="modal" data-target="#data_modal"
+                                    style="cursor:pointer">...more</span>
+                            </div>
+                        </td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" [checked]="answer.is_hidden || answer.is_hidden ? true : false"
+                                    id="{{i}}" (change)="isHidden(answer._id)">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <pagination-controls (pageChange)="p = $event;"></pagination-controls>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="data_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+ 
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-title"><b>Name</b> : {{full_name}}</div>
+                <div class="modal-title"><b>Email</b> : {{email}}</div>
+                <div class="modal-title"><b>Phone</b> : {{phone_number}}</div>
+            </div>
+            <div class="modal-body">
+                    <div style="margin-bottom:10px; word-break: break-word;">
+                            <b> What does financially free means to you?</b>
+                    </div>
+                 
+                <div style="margin-bottom:10px;">
+                        {{text}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

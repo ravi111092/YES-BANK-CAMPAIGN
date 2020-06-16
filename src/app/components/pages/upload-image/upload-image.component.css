@@ -1,0 +1,171 @@
+.container-fluid {
+    height: 100%; overflow: hidden;
+    height: 100%;
+    background: url('/assets/optimized/upload_superwomen.JPG') no-repeat center center fixed;
+    /* background-position: 91% 0%; */
+    /* background-repeat: no-repeat; */
+    background-position: top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.overlay_loading_screen{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #000;
+    z-index: 1;
+    opacity: 0.6;
+    display:flex;justify-content:center;align-items:center;
+  }
+
+.logo {
+    margin-bottom: 20px
+}
+.mobile_image{display:none;}
+.stories_wrapper{width:100%;margin:15px auto;border:1px solid black;}
+.logo img {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+}
+.modal_buttons{margin:0px 10px;font-size:18px;padding-left:20px;padding-right:20px;}
+form {
+    width: 500px;
+    /* min-height: 600px; */
+    float: right;
+    /* margin: 50px auto; */
+    padding: 15px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    background: #fff;
+  }
+
+.form-group {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.form-element {
+    margin-bottom: 10px;
+}
+
+textarea {
+    max-width: 100%
+}
+
+.is-invalid {
+    /* border: 1px solid red; */
+}
+
+.error_div {
+    color: red;
+}
+
+label {
+    font-size: 16px;
+    /* letter-spacing: 1px */
+}
+
+input {
+    height: 40px;
+}
+
+.signup_button {
+    text-decoration: none;
+    cursor: pointer
+}
+
+.login_title {
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+
+/* loader */
+@keyframes lds-ripple {
+    0% {
+      top: 96px;
+      left: 96px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 38px;
+      left: 38px;
+      width: 116px;
+      height: 116px;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes lds-ripple {
+    0% {
+      top: 96px;
+      left: 96px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 38px;
+      left: 38px;
+      width: 116px;
+      height: 116px;
+      opacity: 0;
+    }
+  }
+  /* .lds-ripple {
+    position: relative;
+  } */
+  .lds-ripple div {
+    box-sizing: content-box;
+    position: absolute;
+    border-width: 4px;
+    border-style: solid;
+    /* opacity: 1; */
+    border-radius: 50%;
+    -webkit-animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(1) {
+    border-color: #07a7db;
+  }
+  .lds-ripple div:nth-child(2) {
+    border-color: #3a4191;
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+  }
+  .lds-ripple {
+    width: 200px !important;
+    height: 180px !important;
+    -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  }
+
+@media screen and (max-width:1100px) {
+    .container-fluid{
+        height:auto !important; 
+        background: url('/assets/optimized/superwomen_withoutlogo.JPG') no-repeat center center fixed;
+        overflow: auto !important;}
+    .mobile_image{display:block;}
+    .mobile_image img{width:35%;margin:20px auto;display:block}
+    form {
+        width: 100%;
+        margin: 50px auto !important;
+        float:none;
+      }
+      .form-group {
+        width: 100%;
+      }
+}
+@media screen and (max-width:600px) {
+    form {
+        width: 100%;
+        margin: 50px auto
+    }
+    .form-group {
+        width: 100%;
+    }
+}

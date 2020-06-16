@@ -1,0 +1,6 @@
+run in development : ng s -o
+run in production : npm run build:ssr ; npm run serve:ssr
+add a component : ng g c components/<component-name> --module=app.module.ts --skipTests=true
+add a service : ng g s services/<service-name> --skipTests=true
+upload to heroku : npm run build:ssr ; git add . ; git add dist -f ; git commit -am "added/updated" ; git push heroku master
+
